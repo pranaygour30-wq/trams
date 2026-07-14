@@ -1,0 +1,123 @@
+.hero {
+  text-align: center;
+  position: relative;
+  padding-top: 4rem;
+  padding-bottom: 8rem;
+}
+
+.hero-decor-left {
+  position: absolute;
+  top: 20%;
+  left: -20px;
+  z-index: -1;
+}
+
+.draw-line-pink {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 3s ease-in-out forwards 0.5s;
+}
+
+.draw-line-black {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 3s ease-in-out forwards 0.8s;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.hero-decor-right {
+  position: absolute;
+  top: 30%;
+  right: 5%;
+  z-index: -1;
+}
+
+.purple-half-circle {
+  width: 100px;
+  height: 200px;
+  background-color: #9b51e0;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  transform: rotate(30deg);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: floatShape 4s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.purple-half-circle:hover {
+  background-color: #b070ec;
+  animation-play-state: paused;
+  transform: rotate(45deg) scale(1.2) translateY(-10px);
+}
+
+@keyframes floatShape {
+  0%, 100% { transform: rotate(30deg) translateY(0); }
+  50% { transform: rotate(30deg) translateY(-25px); }
+}
+
+.hero-accent-blur {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background-color: #d8b4fe;
+  opacity: 0.2;
+  filter: blur(100px);
+  z-index: -2;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 5.5rem;
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin: 0 auto 4rem auto;
+}
+
+/* Avatar Collage */
+.hero-collage {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.avatars-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.avatars-image:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+}
